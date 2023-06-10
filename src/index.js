@@ -1,6 +1,11 @@
+import * as dotenv from 'dotenv'
 import express from 'express';
 import userRoutes from './routes/users.js'
 import middlewareLog from './middleware/logs.js'
+
+dotenv.config()
+
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -10,7 +15,7 @@ app.use('/users', userRoutes)
 
 
 
-app.listen(4000, () => {
-    console.log('Server run on port 4000');
+app.listen(PORT, () => {
+    console.log(`Server run on port ${PORT}`);
 })
 
