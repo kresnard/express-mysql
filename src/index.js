@@ -21,7 +21,11 @@ app.post('/upload', upload.single('photo'), (req, res) => {
     })
 })
 
-
+app.use((err, req, res, next ) => {
+    res.status(500).json({
+        message: err.message
+    })
+})
 
 app.listen(PORT, () => {
     console.log(`Server run on port ${PORT}`);
